@@ -21,6 +21,20 @@ The description of the project is the following:
 (some of the requirements are silly but they help understanding some TDD
 concepts)
 
+    Reformatting requirements to enumerate all requirements for reference in tests
+    1. write a class Calc that performs calculations
+        1.1 addition
+            1.1.1 accept multiple arguments
+        1.2 subtraction
+        1.3 multiplication
+            1.3.1 accept multiple arguments
+            1.3.2 multiplication by zero raises a ValueError exception
+        1.4 division
+            1.4.1 Return a float (example only, not good design. never return a float or string)
+            1.4.2 Division by zero returns the string "inf"(example only, not good design. never return a float or string)
+        1.5 Provide a function to compute the average of an iterable
+            1.5.1 Gets two optional upper and lower thresholds to remove outliers
+
 Instructions
 ------------
 
