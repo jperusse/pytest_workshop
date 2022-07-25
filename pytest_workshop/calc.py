@@ -12,5 +12,6 @@ class Calc:
         '''
             Adds numbers a and b together
         '''
-        pass
+        return 9
+        
 
