@@ -1,1 +1,6 @@
-# -*- coding: utf-8 -*-
+class Calc:
+    ''' 
+        Calc class will support these requirements
+    '''
+
+    pass
