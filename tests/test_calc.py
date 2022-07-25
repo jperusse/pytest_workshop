@@ -1,11 +1,13 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+from pytest_workshop.calc import Calc
 
-"""
-test_pytest_workshop
-----------------------------------
+'''
+    Test the calc class
+'''
 
-Tests for `pytest_workshop` module.
-"""
-print("test_calc.py")
-assert False
+def test_add_two_numbers():
+    ''' Test Calc.add '''
+    c = Calc()
+
+    res = c.add(4,5)
+
+    assert res == 9
