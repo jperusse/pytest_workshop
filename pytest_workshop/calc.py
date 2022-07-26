@@ -8,10 +8,8 @@ class Calc:
         Calc class will support these requirements
     '''
 
-    def add(self, a, b):
+    def add(self, *s):
         '''
             Adds numbers a and b together
         '''
-        return 9
-        
-
+        return sum(s)
