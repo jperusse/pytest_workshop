@@ -8,14 +8,14 @@ class Calc:
         Calc class will support these requirements
     '''
 
-    def add(self, *s):
+    def add(self, *list_obj):
         '''
-            Adds numbers a and b together
+            Adds numbers in a list object
         '''
-        return sum(s)
+        return sum(list_obj)
 
     def sub(self, first_parm, second_parm):
         '''
-            Subtract b from a
+            Subtract second_parm from first_parm
         '''
         return first_parm - second_parm
