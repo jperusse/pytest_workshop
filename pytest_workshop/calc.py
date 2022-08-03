@@ -3,6 +3,9 @@
 '''
 
 
+from math import prod
+
+
 class Calc:
     '''
         Calc class will support these requirements
@@ -19,3 +22,9 @@ class Calc:
             Subtract second_parm from first_parm
         '''
         return first_parm - second_parm
+
+    def mult(self, *list_obj):
+        '''
+            Multiply all elements of a list
+        '''
+        return prod(list_obj)
