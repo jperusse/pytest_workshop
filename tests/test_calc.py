@@ -103,10 +103,9 @@ def test_sub_zero_and_negative_numbers():
     res = calc_obj.sub(0, -3)
     assert res == 3
 
-def test_add_using_non_numeric():
+def test_add_using_non_numeric_left():
     ''' Test addition passing an invalid numeric value  '''
     calc_obj = Calc()
-    try:
-        calc_obj.add('',3)
-    except:
-        raise TypeError
+
+    res = calc_obj.add('fred', 3)
+    assert res == TypeError

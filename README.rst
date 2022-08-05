@@ -22,7 +22,7 @@ The description of the project is the following:
 concepts)
 
     Reformatting requirements to enumerate all requirements for reference in tests
-    1. write a class Calc that performs calculations
+    1. write a class Calc that performs calculations on numbers
         1.1 addition
             1.1.1 accept multiple arguments
         1.2 subtraction

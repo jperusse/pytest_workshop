@@ -15,7 +15,14 @@ class Calc:
         '''
             Adds numbers in a list object
         '''
-        return sum(list_obj)
+        try:
+            res = sum(list_obj)
+        except TypeError:
+            return TypeError
+        except Exception as unknown_e:
+            return unknown_e
+        else:
+            return res
 
     def sub(self, first_parm, second_parm):
         '''
