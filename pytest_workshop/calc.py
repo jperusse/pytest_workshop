@@ -15,12 +15,13 @@ class Calc:
         '''
             Adds numbers in a list object
         '''
+        res = None
         try:
             res = sum(list_obj)
         except TypeError:
             return TypeError
-        except Exception as unknown_e:
-            return unknown_e
+        except Exception as unknown_ex:
+            return unknown_ex
         else:
             return res
 
@@ -32,6 +33,9 @@ class Calc:
 
     def mult(self, *list_obj):
         '''
-            Multiply all elements of a list
+            Multiply all elements of a list unless at least 1 is zero
         '''
-        return prod(list_obj)
+        if 0 in list_obj:
+            return ValueError
+        else:
+            return prod(list_obj)
