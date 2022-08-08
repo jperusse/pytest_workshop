@@ -61,10 +61,20 @@ def test_mult_many_numbers_and_zero():
 def test_mult_many_numbers_and_zero_last():
     '''
         Requirement 1.3.2
-        Test Multiply of many numbers
+        Test Multiply many numbers
     '''
     calc_obj = Calc()
     mult_first_10 = [1, 2, 3, 4, 0]
+    res = calc_obj.mult(*mult_first_10)
+    assert res == ValueError
+
+def test_mult_many_numbers_and_multiple_zeros():
+    '''
+        Requirement 1.3.2
+        Test Multiply many numbers
+    '''
+    calc_obj = Calc()
+    mult_first_10 = [1, 0, 3, 4, 0]
     res = calc_obj.mult(*mult_first_10)
     assert res == ValueError
 
