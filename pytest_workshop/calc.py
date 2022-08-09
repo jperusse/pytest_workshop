@@ -39,3 +39,9 @@ class Calc:
             return ValueError
         else:
             return prod(list_obj)
+
+    def div(self, first_parm, second_parm):
+        '''
+            Divide first_parm by second_parm
+        '''
+        return first_parm / second_parm

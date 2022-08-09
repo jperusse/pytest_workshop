@@ -68,6 +68,7 @@ def test_mult_many_numbers_and_zero_last():
     res = calc_obj.mult(*mult_first_10)
     assert res == ValueError
 
+
 def test_mult_many_numbers_and_multiple_zeros():
     '''
         Requirement 1.3.2
@@ -161,6 +162,7 @@ def test_add_using_non_numeric_left():
     res = calc_obj.add('fred', 3)
     assert res == TypeError
 
+
 def test_add_using_none():
     '''
         Requirement 1.1
@@ -170,3 +172,27 @@ def test_add_using_none():
 
     res = calc_obj.add(None, 3)
     assert res == TypeError
+
+
+def test_divide_with_no_remainder():
+    '''
+        Requirement 1.4
+        Test division
+    '''
+    calc_obj = Calc()
+
+    res = calc_obj.div(6, 3)
+    assert res == 2
+    assert isinstance(res, float)
+
+
+def test_divide_return_float():
+    '''
+        Requirement 1.4
+        Test division
+    '''
+    calc_obj = Calc()
+
+    res = calc_obj.div(11, 2)
+    assert res == 5.5
+    assert isinstance(res, float)
