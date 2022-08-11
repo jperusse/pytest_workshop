@@ -48,13 +48,25 @@ def test_mult_many_numbers():
     assert res == 362880
 
 
-def mult_manage_exceptions_using_pytest(exception_obj, list_obj):
+def mult_manage_exceptions_using_pytest(op_type, exception_obj, list_obj):
     '''
         function to trap exception using pytest
     '''
+    calc_obj = Calc()
     with pytest.raises(exception_obj):
-        calc_obj = Calc()
-        calc_obj.mult(*list_obj)
+        match op_type:
+            case "add":
+                calc_obj.add(*list_obj)
+
+            case "sub":
+                calc_obj.sub(*list_obj)
+
+            case "mult":
+                calc_obj.mult(*list_obj)
+
+            case "div":
+                calc_obj.div(*list_obj)
+
     return
 
 
@@ -64,7 +76,7 @@ def test_mult_many_numbers_and_zero():
         Test Multiply of many numbers
         Verify ValueError gets raised
     '''
-    mult_manage_exceptions_using_pytest(ValueError, range(10))
+    mult_manage_exceptions_using_pytest("mult", ValueError, range(10))
 
 def test_mult_many_numbers_and_zero_last():
     '''
@@ -72,7 +84,7 @@ def test_mult_many_numbers_and_zero_last():
         Test Multiply many numbers
         Verify ValueError gets raised
     '''
-    mult_manage_exceptions_using_pytest(ValueError, [1, 2, 3, 4, 0])
+    mult_manage_exceptions_using_pytest("mult", ValueError, [1, 2, 3, 4, 0])
 
 def test_mult_by_zero_raises_exception():
     '''
@@ -80,7 +92,7 @@ def test_mult_by_zero_raises_exception():
         Test Multiply many numbers
         Verify ValueError gets raised
     '''
-    mult_manage_exceptions_using_pytest(ValueError, [1, 0, 3, 4, 0])
+    mult_manage_exceptions_using_pytest("mult", ValueError, [1, 0, 3, 4, 0])
 
 def test_sub_two_positive_numbers():
     '''
