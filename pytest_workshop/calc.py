@@ -15,15 +15,12 @@ class Calc:
         '''
             Adds numbers in a list object
         '''
-        res = None
         try:
-            res = sum(list_obj)
+            return sum(list_obj)
         except TypeError:
             return TypeError
         except Exception as unknown_ex:
             return unknown_ex
-        else:
-            return res
 
     def sub(self, first_parm, second_parm):
         '''
@@ -36,7 +33,7 @@ class Calc:
             Multiply all elements of a list unless at least 1 is zero
         '''
         if 0 in list_obj:
-            return ValueError
+            raise ValueError
         else:
             return prod(list_obj)
 
@@ -44,4 +41,9 @@ class Calc:
         '''
             Divide first_parm by second_parm
         '''
-        return first_parm / second_parm
+        try:
+            return first_parm / second_parm
+        except ZeroDivisionError:
+            return 'inf'
+        except Exception as unknown_ex:
+            return unknown_ex

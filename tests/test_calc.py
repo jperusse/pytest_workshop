@@ -1,6 +1,7 @@
 '''
     Test the calc class
 '''
+import pytest
 
 from pytest_workshop.calc import Calc
 
@@ -47,38 +48,39 @@ def test_mult_many_numbers():
     assert res == 362880
 
 
+def mult_manage_exceptions_using_pytest(exception_obj, list_obj):
+    '''
+        function to trap exception using pytest
+    '''
+    with pytest.raises(exception_obj):
+        calc_obj = Calc()
+        calc_obj.mult(*list_obj)
+    return
+
+
 def test_mult_many_numbers_and_zero():
     '''
         Requirement 1.3.2
         Test Multiply of many numbers
+        Verify ValueError gets raised
     '''
-    calc_obj = Calc()
-    mult_first_10 = range(10)
-    res = calc_obj.mult(*mult_first_10)
-    assert res == ValueError
-
+    mult_manage_exceptions_using_pytest(ValueError, range(10))
 
 def test_mult_many_numbers_and_zero_last():
     '''
         Requirement 1.3.2
         Test Multiply many numbers
+        Verify ValueError gets raised
     '''
-    calc_obj = Calc()
-    mult_first_10 = [1, 2, 3, 4, 0]
-    res = calc_obj.mult(*mult_first_10)
-    assert res == ValueError
+    mult_manage_exceptions_using_pytest(ValueError, [1, 2, 3, 4, 0])
 
-
-def test_mult_many_numbers_and_multiple_zeros():
+def test_mult_by_zero_raises_exception():
     '''
         Requirement 1.3.2
         Test Multiply many numbers
+        Verify ValueError gets raised
     '''
-    calc_obj = Calc()
-    mult_first_10 = [1, 0, 3, 4, 0]
-    res = calc_obj.mult(*mult_first_10)
-    assert res == ValueError
-
+    mult_manage_exceptions_using_pytest(ValueError, [1, 0, 3, 4, 0])
 
 def test_sub_two_positive_numbers():
     '''
@@ -171,7 +173,7 @@ def test_add_using_none():
     calc_obj = Calc()
 
     res = calc_obj.add(None, 3)
-    assert res == TypeError
+    assert res is TypeError
 
 
 def test_divide_with_no_remainder():
@@ -183,12 +185,11 @@ def test_divide_with_no_remainder():
 
     res = calc_obj.div(6, 3)
     assert res == 2
-    assert isinstance(res, float)
 
 
 def test_divide_return_float():
     '''
-        Requirement 1.4
+        Requirement 1.4.1
         Test division
     '''
     calc_obj = Calc()
@@ -196,3 +197,14 @@ def test_divide_return_float():
     res = calc_obj.div(11, 2)
     assert res == 5.5
     assert isinstance(res, float)
+
+
+def test_divide_return_inf():
+    '''
+        Requirement 1.4.2
+        Test division
+    '''
+    calc_obj = Calc()
+
+    res = calc_obj.div(11, 0)
+    assert res == 'inf'
