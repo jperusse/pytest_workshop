@@ -15,12 +15,7 @@ class Calc:
         '''
             Adds numbers in a list object
         '''
-        try:
-            return sum(list_obj)
-        except TypeError:
-            return TypeError
-        except Exception as unknown_ex:
-            return unknown_ex
+        return sum(list_obj)
 
     def sub(self, first_parm, second_parm):
         '''
@@ -45,5 +40,4 @@ class Calc:
             return first_parm / second_parm
         except ZeroDivisionError:
             return 'inf'
-        except Exception as unknown_ex:
-            return unknown_ex
+        return

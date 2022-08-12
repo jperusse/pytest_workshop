@@ -149,21 +149,14 @@ def test_add_using_non_numeric_right():
         Requirement 1.1
         Test addition - negative test
     '''
-    calc_obj = Calc()
-
-    res = calc_obj.add(3, 'fred')
-    assert res == TypeError
-
+    mult_manage_exceptions_using_pytest("add", TypeError, [3, 'fred'])
 
 def test_add_using_non_numeric_both():
     '''
         Requirement 1.1
         Test addition - negative test
     '''
-    calc_obj = Calc()
-
-    res = calc_obj.add('fred', ' was here')
-    assert res == TypeError
+    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', ' was here'])
 
 
 def test_add_using_non_numeric_left():
@@ -171,10 +164,7 @@ def test_add_using_non_numeric_left():
         Requirement 1.1
         Test addition - negative test
     '''
-    calc_obj = Calc()
-
-    res = calc_obj.add('fred', 3)
-    assert res == TypeError
+    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', 3])
 
 
 def test_add_using_none():
@@ -182,10 +172,7 @@ def test_add_using_none():
         Requirement 1.1
         Test addition - negative test
     '''
-    calc_obj = Calc()
-
-    res = calc_obj.add(None, 3)
-    assert res is TypeError
+    mult_manage_exceptions_using_pytest("add", TypeError, [None, 3])
 
 
 def test_divide_with_no_remainder():
