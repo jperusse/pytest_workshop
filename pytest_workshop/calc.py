@@ -27,10 +27,15 @@ class Calc:
         '''
             Multiply all elements of a list unless at least 1 is zero
         '''
+        res = None
         if 0 in list_obj:
             raise ValueError
         else:
-            return prod(list_obj)
+            res = prod(list_obj)
+            if isinstance(res) != int:
+                raise TypeError
+        return res
+
 
     def div(self, first_parm, second_parm):
         '''

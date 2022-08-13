@@ -26,6 +26,37 @@ def test_add_many_numbers():
     res = calc_obj.add(*sum_first_100)
     assert res == 4950
 
+def test_add_using_non_numeric_right():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("add", TypeError, [3, 'fred'])
+
+
+def test_add_using_non_numeric_both():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', ' was here'])
+
+
+def test_add_using_non_numeric_left():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', 3])
+
+
+def test_add_using_none():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("add", TypeError, [None, 3])
+
 
 def test_mult_two_numbers():
     '''
@@ -76,7 +107,8 @@ def test_mult_many_numbers_and_zero():
         Test Multiply of many numbers
         Verify ValueError gets raised
     '''
-    mult_manage_exceptions_using_pytest("mult", ValueError, range(10))
+    mult_manage_exceptions_using_pytest("mult", ValueError, range(100))
+
 
 def test_mult_many_numbers_and_zero_last():
     '''
@@ -86,6 +118,7 @@ def test_mult_many_numbers_and_zero_last():
     '''
     mult_manage_exceptions_using_pytest("mult", ValueError, [1, 2, 3, 4, 0])
 
+
 def test_mult_by_zero_raises_exception():
     '''
         Requirement 1.3.2
@@ -93,6 +126,47 @@ def test_mult_by_zero_raises_exception():
         Verify ValueError gets raised
     '''
     mult_manage_exceptions_using_pytest("mult", ValueError, [1, 0, 3, 4, 0])
+
+
+def test_mult_by_all_zero_raises_exception():
+    '''
+        Requirement 1.3.2
+        Test Multiply many numbers
+        Verify ValueError gets raised
+    '''
+    mult_manage_exceptions_using_pytest("mult", ValueError, [0, 0, 0, 0, 0])
+
+
+def test_mult_using_non_numeric_right():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("mult", TypeError, [3, 'fred'])
+
+
+def test_add_using_non_numeric_both():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', ' was here'])
+
+
+def test_add_using_non_numeric_left():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', 3])
+
+
+def test_add_using_none():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("add", TypeError, [None, 3])
 
 def test_sub_two_positive_numbers():
     '''
@@ -143,36 +217,6 @@ def test_sub_zero_and_negative_numbers():
     res = calc_obj.sub(0, -3)
     assert res == 3
 
-
-def test_add_using_non_numeric_right():
-    '''
-        Requirement 1.1
-        Test addition - negative test
-    '''
-    mult_manage_exceptions_using_pytest("add", TypeError, [3, 'fred'])
-
-def test_add_using_non_numeric_both():
-    '''
-        Requirement 1.1
-        Test addition - negative test
-    '''
-    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', ' was here'])
-
-
-def test_add_using_non_numeric_left():
-    '''
-        Requirement 1.1
-        Test addition - negative test
-    '''
-    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', 3])
-
-
-def test_add_using_none():
-    '''
-        Requirement 1.1
-        Test addition - negative test
-    '''
-    mult_manage_exceptions_using_pytest("add", TypeError, [None, 3])
 
 
 def test_divide_with_no_remainder():
