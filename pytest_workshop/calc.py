@@ -32,7 +32,9 @@ class Calc:
             raise ValueError
         else:
             res = prod(list_obj)
-            if isinstance(res) != int:
+            if isinstance(res, int):
+                return res
+            else:
                 raise TypeError
         return res
 

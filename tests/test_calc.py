@@ -1,5 +1,5 @@
 '''
-    Test the calc class
+    Test the Calc class
 '''
 import pytest
 
@@ -145,28 +145,28 @@ def test_mult_using_non_numeric_right():
     mult_manage_exceptions_using_pytest("mult", TypeError, [3, 'fred'])
 
 
-def test_add_using_non_numeric_both():
+def test_mult_using_non_numeric_both():
     '''
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', ' was here'])
+    mult_manage_exceptions_using_pytest("mult", TypeError, ['fred', ' was here'])
 
 
-def test_add_using_non_numeric_left():
+def test_mult_using_non_numeric_left():
     '''
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', 3])
+    mult_manage_exceptions_using_pytest("mult", TypeError, ['fred', 3])
 
 
-def test_add_using_none():
+def test_mult_using_none():
     '''
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("add", TypeError, [None, 3])
+    mult_manage_exceptions_using_pytest("mult", TypeError, [None, 3])
 
 def test_sub_two_positive_numbers():
     '''
