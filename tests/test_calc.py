@@ -93,6 +93,9 @@ def mult_manage_exceptions_using_pytest(op_type, exception_obj, list_obj):
             case "div":
                 calc_obj.div(*list_obj)
 
+            case "avg":
+                calc_obj.avg(*list_obj)
+
     return
 
 
@@ -211,7 +214,7 @@ def test_sub_using_non_numeric_right():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_parm)
+    mult_manage_exceptions_using_pytest("sub", TypeError, bad_right_parm)
 
 
 def test_sub_using_non_numeric_both():
@@ -219,7 +222,7 @@ def test_sub_using_non_numeric_both():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_and_left_parms)
+    mult_manage_exceptions_using_pytest("sub", TypeError, bad_right_and_left_parms)
 
 
 def test_sub_using_non_numeric_left():
@@ -227,7 +230,7 @@ def test_sub_using_non_numeric_left():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, bad_left_parm)
+    mult_manage_exceptions_using_pytest("sub", TypeError, bad_left_parm)
 
 
 def test_divide_with_no_remainder():
@@ -268,7 +271,7 @@ def test_div_using_non_numeric_right():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_parm)
+    mult_manage_exceptions_using_pytest("div", TypeError, bad_right_parm)
 
 
 def test_div_using_non_numeric_both():
@@ -276,7 +279,7 @@ def test_div_using_non_numeric_both():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_and_left_parms)
+    mult_manage_exceptions_using_pytest("div", TypeError, bad_right_and_left_parms)
 
 
 def test_div_using_non_numeric_left():
@@ -284,4 +287,59 @@ def test_div_using_non_numeric_left():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, bad_left_parm)
+    mult_manage_exceptions_using_pytest("div", TypeError, bad_left_parm)
+
+def test_avg_of_two_numbers():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    res = calc_obj.avg(10, 20)
+    assert res == 15
+
+def test_avg_of_a_list_of_numbers():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [6, 3, 5, 4]
+    res = calc_obj.avg(*nums)
+    assert res == 4.5
+
+def test_avg_of_empty_list():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = []
+    res = calc_obj.avg(*nums)
+    assert res == 'inf'
+
+def test_avg_using_non_numeric_right():
+    '''
+        Requirement 1.5
+        Test average - negative test
+    '''
+    mult_manage_exceptions_using_pytest("avg", TypeError, bad_right_parm)
+
+
+def test_avg_using_non_numeric_both():
+    '''
+        Requirement 1.5
+        Test average - negative test
+    '''
+    mult_manage_exceptions_using_pytest("avg", TypeError, bad_right_and_left_parms)
+
+
+def test_avg_using_non_numeric_left():
+    '''
+        Requirement 1.5
+        Test average - negative test
+    '''
+    mult_manage_exceptions_using_pytest("avg", TypeError, bad_left_parm)

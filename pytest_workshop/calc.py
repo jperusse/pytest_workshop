@@ -48,3 +48,12 @@ class Calc:
         except ZeroDivisionError:
             return 'inf'
         return
+
+    def avg(self, *iter_obj):
+        '''
+            Calculate average of iterable object
+        '''
+        total = self.add(*iter_obj)
+        length = len(iter_obj)
+        average = self.div(total, length)
+        return average
