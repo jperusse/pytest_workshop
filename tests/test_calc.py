@@ -299,6 +299,16 @@ def test_avg_of_two_numbers():
     res = calc_obj.avg(10, 20)
     assert res == 15
 
+def test_avg_of_one_numbers():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    res = calc_obj.avg(20)
+    assert res == 20
+
 def test_avg_of_a_list_of_numbers():
     '''
         Requirement 1.5
@@ -309,6 +319,39 @@ def test_avg_of_a_list_of_numbers():
     nums = [6, 3, 5, 4]
     res = calc_obj.avg(*nums)
     assert res == 4.5
+
+def test_avg_of_a_list_of_numbers_with_upper_limit():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, ul=90)
+    assert res == pytest.approx(6.33333)
+
+def test_avg_of_a_list_of_numbers_with_lower_limit():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, ll=2)
+    assert res == pytest.approx(38.33333)
+
+def test_avg_of_a_list_of_numbers_with_both_limits():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, ll=3, ul=90)
+    assert res == 8.5
 
 def test_avg_of_empty_list():
     '''
