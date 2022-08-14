@@ -5,6 +5,9 @@ import pytest
 
 from pytest_workshop.calc import Calc
 
+bad_right_parm = [3, 'fred']
+bad_right_and_left_parms = ['fred', ' was here']
+bad_left_parm = ['fred', 3]
 
 def test_add_two_numbers():
     '''
@@ -31,15 +34,14 @@ def test_add_using_non_numeric_right():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("add", TypeError, [3, 'fred'])
-
+    mult_manage_exceptions_using_pytest("add", TypeError, bad_right_parm)
 
 def test_add_using_non_numeric_both():
     '''
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', ' was here'])
+    mult_manage_exceptions_using_pytest("add", TypeError, bad_right_and_left_parms)
 
 
 def test_add_using_non_numeric_left():
@@ -47,15 +49,8 @@ def test_add_using_non_numeric_left():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("add", TypeError, ['fred', 3])
+    mult_manage_exceptions_using_pytest("add", TypeError, bad_left_parm)
 
-
-def test_add_using_none():
-    '''
-        Requirement 1.1
-        Test addition - negative test
-    '''
-    mult_manage_exceptions_using_pytest("add", TypeError, [None, 3])
 
 
 def test_mult_two_numbers():
@@ -142,7 +137,7 @@ def test_mult_using_non_numeric_right():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, [3, 'fred'])
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_parm)
 
 
 def test_mult_using_non_numeric_both():
@@ -150,7 +145,7 @@ def test_mult_using_non_numeric_both():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, ['fred', ' was here'])
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_and_left_parms)
 
 
 def test_mult_using_non_numeric_left():
@@ -158,15 +153,8 @@ def test_mult_using_non_numeric_left():
         Requirement 1.1
         Test addition - negative test
     '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, ['fred', 3])
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_left_parm)
 
-
-def test_mult_using_none():
-    '''
-        Requirement 1.1
-        Test addition - negative test
-    '''
-    mult_manage_exceptions_using_pytest("mult", TypeError, [None, 3])
 
 def test_sub_two_positive_numbers():
     '''
@@ -218,6 +206,29 @@ def test_sub_zero_and_negative_numbers():
     assert res == 3
 
 
+def test_sub_using_non_numeric_right():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_parm)
+
+
+def test_sub_using_non_numeric_both():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_and_left_parms)
+
+
+def test_sub_using_non_numeric_left():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_left_parm)
+
 
 def test_divide_with_no_remainder():
     '''
@@ -251,3 +262,26 @@ def test_divide_return_inf():
 
     res = calc_obj.div(11, 0)
     assert res == 'inf'
+
+def test_div_using_non_numeric_right():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_parm)
+
+
+def test_div_using_non_numeric_both():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_right_and_left_parms)
+
+
+def test_div_using_non_numeric_left():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    mult_manage_exceptions_using_pytest("mult", TypeError, bad_left_parm)
