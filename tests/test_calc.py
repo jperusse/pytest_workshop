@@ -9,6 +9,7 @@ bad_right_parm = [3, 'fred']
 bad_right_and_left_parms = ['fred', ' was here']
 bad_left_parm = ['fred', 3]
 
+
 def test_add_two_numbers():
     '''
         Requirement 1.1 addition
@@ -29,12 +30,14 @@ def test_add_many_numbers():
     res = calc_obj.add(*sum_first_100)
     assert res == 4950
 
+
 def test_add_using_non_numeric_right():
     '''
         Requirement 1.1
         Test addition - negative test
     '''
     mult_manage_exceptions_using_pytest("add", TypeError, bad_right_parm)
+
 
 def test_add_using_non_numeric_both():
     '''
@@ -50,7 +53,6 @@ def test_add_using_non_numeric_left():
         Test addition - negative test
     '''
     mult_manage_exceptions_using_pytest("add", TypeError, bad_left_parm)
-
 
 
 def test_mult_two_numbers():
@@ -266,6 +268,7 @@ def test_divide_return_inf():
     res = calc_obj.div(11, 0)
     assert res == 'inf'
 
+
 def test_div_using_non_numeric_right():
     '''
         Requirement 1.1
@@ -289,80 +292,6 @@ def test_div_using_non_numeric_left():
     '''
     mult_manage_exceptions_using_pytest("div", TypeError, bad_left_parm)
 
-def test_avg_of_two_numbers():
-    '''
-        Requirement 1.5
-        Test average
-    '''
-    calc_obj = Calc()
-
-    res = calc_obj.avg(10, 20)
-    assert res == 15
-
-def test_avg_of_one_numbers():
-    '''
-        Requirement 1.5
-        Test average
-    '''
-    calc_obj = Calc()
-
-    res = calc_obj.avg(20)
-    assert res == 20
-
-def test_avg_of_a_list_of_numbers():
-    '''
-        Requirement 1.5
-        Test average
-    '''
-    calc_obj = Calc()
-
-    nums = [6, 3, 5, 4]
-    res = calc_obj.avg(*nums)
-    assert res == 4.5
-
-def test_avg_of_a_list_of_numbers_with_upper_limit():
-    '''
-        Requirement 1.5.1
-        Test average
-    '''
-    calc_obj = Calc()
-
-    nums = [2, 5, 12, 98]
-    res = calc_obj.avg(*nums, ul=90)
-    assert res == pytest.approx(6.33333)
-
-def test_avg_of_a_list_of_numbers_with_lower_limit():
-    '''
-        Requirement 1.5.1
-        Test average
-    '''
-    calc_obj = Calc()
-
-    nums = [2, 5, 12, 98]
-    res = calc_obj.avg(*nums, ll=2)
-    assert res == pytest.approx(38.33333)
-
-def test_avg_of_a_list_of_numbers_with_both_limits():
-    '''
-        Requirement 1.5.1
-        Test average
-    '''
-    calc_obj = Calc()
-
-    nums = [2, 5, 12, 98]
-    res = calc_obj.avg(*nums, ll=3, ul=90)
-    assert res == 8.5
-
-def test_avg_of_empty_list():
-    '''
-        Requirement 1.5
-        Test average
-    '''
-    calc_obj = Calc()
-
-    nums = []
-    res = calc_obj.avg(*nums)
-    assert res == 'inf'
 
 def test_avg_using_non_numeric_right():
     '''
@@ -386,3 +315,133 @@ def test_avg_using_non_numeric_left():
         Test average - negative test
     '''
     mult_manage_exceptions_using_pytest("avg", TypeError, bad_left_parm)
+
+
+def test_avg_of_two_numbers():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    res = calc_obj.avg(10, 20)
+    assert res == 15
+
+
+def test_avg_of_one_numbers():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    res = calc_obj.avg(20)
+    assert res == 20
+
+
+def test_avg_of_a_list_of_numbers():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [6, 3, 5, 4]
+    res = calc_obj.avg(*nums)
+    assert res == 4.5
+
+
+def test_avg_of_a_list_of_numbers_with_upper_limit():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, ut=90)
+    assert res == pytest.approx(6.33333)
+
+
+def test_avg_of_a_list_of_numbers_with_lower_limit():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, lt=3)
+    assert res == pytest.approx(38.33333)
+
+
+def test_avg_of_a_list_of_numbers_with_both_limits():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, lt=3, ut=90)
+    assert res == 8.5
+
+
+def test_avg_of_a_list_of_numbers_with_both_limits_equality_same_elelment():
+    '''
+        Requirement 1.5.2
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, lt=5, ut=5)
+    assert res == 5
+
+
+def test_avg_of_a_list_of_numbers_with_both_limits_equality_end_elelments():
+    '''
+        Requirement 1.5.2
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [2, 5, 12, 98]
+    res = calc_obj.avg(*nums, lt=2, ut=98)
+    assert res == 29.25
+
+
+def test_avg_of_a_list_of_negative_numbers_with_both_limits_equality_end_elelments():
+    '''
+        Requirement 1.5.2
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [-2, -5, -12, -98]
+    res = calc_obj.avg(*nums, lt=-98, ut=-2)
+    assert res == -29.25
+
+
+def test_avg_of_a_list_of_zeros():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [0, 0, 0, 0]
+    res = calc_obj.avg(*nums, lt=2, ut=98)
+    assert res == 'inf'
+
+
+def test_avg_of_empty_list():
+    '''
+        Requirement 1.5
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = []
+    res = calc_obj.avg(*nums)
+    assert res == 'inf'

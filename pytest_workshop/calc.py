@@ -49,20 +49,26 @@ class Calc:
             return 'inf'
         return
 
-    def avg(self, *iter_obj, ll=-999999, ul=999999):
+    def avg(self, *iter_obj, lt=None, ut=None):
         '''
             Calculate average of iterable object
-            Use optional lower limit(ll) and upper limit(ul)
+            Use optional lower threshold(lt) and upper threshold(ut)
             to filter out elements of the iterable iter_obj.
         '''
+        if len(iter_obj) == 0:
+            return 'inf'
+
+        if not lt:
+            lt = min(iter_obj)
+
+        if not ut:
+            ut = max(iter_obj)
+
         average = None
-        if ul is None and ll is None:
-            new_iter_obj = iter_obj
-        else:
-            new_iter_obj = []
-            for element in iter_obj:
-                if element > ll and element < ul:
-                    new_iter_obj.append(element)
+        new_iter_obj = []
+        for element in iter_obj:
+            if element >= lt and element <= ut:
+                new_iter_obj.append(element)
 
         total = self.add(*new_iter_obj)
         length = len(new_iter_obj)

@@ -34,6 +34,7 @@ concepts)
             1.4.2 Division by zero returns the string "inf"(example only, not good design. never return a float or string)
         1.5 Provide a function to compute the average of an iterable
             1.5.1 Gets two optional upper and lower thresholds to remove outliers
+            1.5.2 The optional thresholds includes equality (use <= and >=)
 
 Instructions
 ------------
