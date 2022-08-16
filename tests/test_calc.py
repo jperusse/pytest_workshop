@@ -474,3 +474,10 @@ def test_avg_of_empty_list():
         Test average
     '''
     manage_exceptions_using_pytest("avg", ValueError, [])
+
+def test_avg_of_empty_list_with_thresholds():
+    '''
+        Requirement 1.5.3
+        Test average
+    '''
+    manage_exceptions_using_pytest("avg", ValueError, [], lower_t=2, upper_t=90)
