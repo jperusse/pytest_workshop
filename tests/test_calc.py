@@ -313,6 +313,13 @@ def test_avg_using_non_numeric_left():
     '''
     manage_exceptions_using_pytest("avg", TypeError, bad_left_parm)
 
+def test_avg_using_non_iterable():
+    '''
+        Requirement 1.5
+        Test average - negative test
+    '''
+    manage_exceptions_using_pytest("avg", TypeError, 123)
+
 
 def test_avg_of_two_numbers():
     '''
@@ -430,6 +437,28 @@ def test_avg_of_a_list_of_zeros_in_thresholds():
     nums = [0, 0, 0, 0]
     res = calc_obj.avg(*nums, lt=-2, ut=98)
     assert res == 0
+
+def test_avg_using_positive_and_negative_with_lower_threshold():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [-1, 0, 1]
+    res = calc_obj.avg(*nums, lt=0)
+    assert res == 0.5
+
+def test_avg_using_positive_and_negative_with_upper_threshold():
+    '''
+        Requirement 1.5.1
+        Test average
+    '''
+    calc_obj = Calc()
+
+    nums = [-1, 0, 1]
+    res = calc_obj.avg(*nums, ut=0)
+    assert res == -0.5
 
 def test_avg_of_a_list_of_zeros_out_of_thresholds():
     '''

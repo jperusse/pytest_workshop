@@ -71,10 +71,10 @@ class Calc:
         if len(iter_obj) == 0:
             raise ValueError
 
-        if not lt:
+        if lt is None:
             lt = min(iter_obj)
 
-        if not ut:
+        if ut is None:
             ut = max(iter_obj)
 
         average = None
