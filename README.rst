@@ -35,6 +35,7 @@ concepts)
         1.5 Provide a function to compute the average of an iterable
             1.5.1 Gets two optional upper and lower thresholds to remove outliers
             1.5.2 The optional thresholds includes equality (use <= and >=)
+            1.5.3 Raise ValueError if the list is empty
 
 Instructions
 ------------
