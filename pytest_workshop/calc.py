@@ -16,7 +16,7 @@ class Calc:
         '''
             Adds numbers in a list object
         '''
-        if len(list_obj) == 0:
+        if len(list_obj) < 2:
             raise ValueError
 
         return sum(list_obj)
@@ -34,7 +34,7 @@ class Calc:
         '''
             Multiply all elements of a list unless at least 1 is zero
         '''
-        if len(list_obj) == 0:
+        if len(list_obj) < 2:
             raise ValueError
 
         res = None
@@ -68,7 +68,7 @@ class Calc:
             Use optional lower threshold(lt) and upper threshold(ut)
             to filter out elements of the iterable iter_obj.
         '''
-        if len(iter_obj) == 0:
+        if len(iter_obj) < 2:
             raise ValueError
 
         if lt is None:

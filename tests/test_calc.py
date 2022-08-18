@@ -77,6 +77,41 @@ def test_add_using_non_numeric_left():
     '''
     manage_exceptions_using_pytest("add", TypeError, bad_left_parm)
 
+def test_add_must_have_two():
+    '''
+        Requirement 1.1
+        Test addition - negative test
+    '''
+    manage_exceptions_using_pytest("add", ValueError, [4])
+
+def test_sub_must_have_two():
+    '''
+        Requirement 1.2
+        Test subtraction - negative test
+    '''
+    manage_exceptions_using_pytest("sub", TypeError, [4])
+
+def test_mult_must_have_two():
+    '''
+        Requirement 1.3
+        Test multiplication - negative test
+    '''
+    manage_exceptions_using_pytest("mult", ValueError, [4])
+
+def test_avg_must_have_two():
+    '''
+        Requirement 1.5
+        Test multiplication - negative test
+    '''
+    manage_exceptions_using_pytest("avg", ValueError, [4])
+
+def test_div_must_have_two():
+    '''
+        Requirement 1.4
+        Test division - negative test
+    '''
+    manage_exceptions_using_pytest("div", TypeError, [4])
+
 
 def test_mult_two_numbers():
     '''
@@ -330,17 +365,6 @@ def test_avg_of_two_numbers():
 
     res = calc_obj.avg(10, 20)
     assert res == 15
-
-
-def test_avg_of_one_numbers():
-    '''
-        Requirement 1.5
-        Test average
-    '''
-    calc_obj = Calc()
-
-    res = calc_obj.avg(20)
-    assert res == 20
 
 
 def test_avg_of_a_list_of_numbers():
