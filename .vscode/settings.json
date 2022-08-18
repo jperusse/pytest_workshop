@@ -15,6 +15,7 @@
     "python.testing.pytestArgs": [
         "tests",
         "-v",
+        "-v",
         "-s",
     ],
     "python.testing.pytestEnabled": true,
