@@ -55,6 +55,10 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# Virtual environment
+venv3/
+venv3/Scripts/
+
 # PyBuilder
 target/
 
